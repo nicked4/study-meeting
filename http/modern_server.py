@@ -25,4 +25,4 @@ async def query(n: int):
 @app.post('/')
 async def root(body: User):
     user = body.dict()
-    return f'Hello {user.name}! Your id is {user.id}.'
+    return f'Hello {user["name"]}! Your id is {user["id"]}.'
