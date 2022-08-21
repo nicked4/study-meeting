@@ -1,6 +1,7 @@
-# Learned
-* http
+# Study meeting
 
-# To Do
-* https
-
+* [x] http
+* [x] https
+* [ ] DNS
+  * next
+* [ ] Load Balancing
