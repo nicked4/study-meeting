@@ -1,0 +1,5 @@
+zone "ochinchin.com" {
+        type master;
+        file "ochinchin.com.db";
+        allow-transfer { slaveサーバのip; };
+};

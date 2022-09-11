@@ -1,0 +1,5 @@
+zone "ochinchin.com" {
+        type slave;
+        file "slave.ochinchin.com.db";
+        masters { masterサーバのip; };
+};
