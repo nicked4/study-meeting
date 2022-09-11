@@ -2,6 +2,16 @@
 
 * [x] http
 * [x] https
-* [ ] DNS
-  * next
+* [x] DNS
 * [ ] Load Balancing
+  * next
+* [ ] IP
+* [ ] TCP
+* [ ] UDP
+* [ ] Linux (Kernel)
+* [ ] Browser (Rendering)
+* [ ] Git
+* [ ] Docker
+* [ ] Agile
+* [ ] Architecture
+* [ ] Design Pattern
