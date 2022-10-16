@@ -3,8 +3,7 @@
 * [x] http
 * [x] https
 * [x] DNS
-* [ ] Load Balancing
-  * next
+* [x] Load Balancing
 * [ ] IP
 * [ ] TCP
 * [ ] UDP
@@ -15,3 +14,5 @@
 * [ ] Agile
 * [ ] Architecture
 * [ ] Design Pattern
+* [ ] SQL (optimize)
+  * next
