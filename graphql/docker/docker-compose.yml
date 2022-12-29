@@ -4,21 +4,22 @@ services:
   postgresql:
     build: 
       context: ./postgresql/
-      dockerfile: build/Dockerfile
+      dockerfile: Dockerfile
     image: postgresql
     container_name: postgresql
-    env_file:
-      - ./postgresql/env/.env
+    environment:
+      - POSTGRES_PASSWORD=password
+      - PGDATA=/var/lib/postgresql/data
     volumes:
       - ./postgresql/postgresql_data:/var/lib/postgresql/data
   # adminer
   adminer:
     build: 
       context: ./adminer/
-      dockerfile: build/Dockerfile
+      dockerfile: Dockerfile
     image: adminer
     container_name: adminer
-    env_file:
-      - ./adminer/env/.env
+    environment:
+      - POSTGRES_PASSWORD=password
     ports:
       - "8001:8080"
