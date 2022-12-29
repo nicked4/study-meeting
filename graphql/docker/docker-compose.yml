@@ -36,4 +36,4 @@ services:
     volumes:
         - ./node/src:/app
     working_dir: /app
-    command: npm run dev
+    command: sh -c 'npx tsc; npm run dev'
