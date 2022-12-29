@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  # PostgreSQL
+  postgresql:
+    build: 
+      context: ./postgresql/
+      dockerfile: build/Dockerfile
+    image: postgresql
+    container_name: postgresql
+    env_file:
+      - ./postgresql/env/.env
+    volumes:
+      - ./postgresql/postgresql_data:/var/lib/postgresql/data
+  # adminer
+  adminer:
+    build: 
+      context: ./adminer/
+      dockerfile: build/Dockerfile
+    image: adminer
+    container_name: adminer
+    env_file:
+      - ./adminer/env/.env
+    ports:
+      - "8001:8080"
