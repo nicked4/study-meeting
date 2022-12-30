@@ -12,7 +12,6 @@ services:
       - PGDATA=/var/lib/postgresql/data
     volumes:
       - ./postgresql/postgresql_data:/var/lib/postgresql/data
-
   # adminer
   adminer:
     build: 
@@ -24,7 +23,7 @@ services:
       - POSTGRES_PASSWORD=password
     ports:
       - "8001:8080"
-
+      
   # GraphQL
   node:
     image: node:19
@@ -32,7 +31,7 @@ services:
         - DEBUG=app:*
     tty: true
     ports:
-        - '3000:3000'
+        - '4000:4000'
     volumes:
         - ./node/src:/app
     working_dir: /app
