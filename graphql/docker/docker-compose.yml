@@ -8,21 +8,11 @@ services:
     image: postgresql
     container_name: postgresql
     environment:
+      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
       - PGDATA=/var/lib/postgresql/data
     volumes:
       - ./postgresql/postgresql_data:/var/lib/postgresql/data
-  # adminer
-  adminer:
-    build: 
-      context: ./adminer/
-      dockerfile: Dockerfile
-    image: adminer
-    container_name: adminer
-    environment:
-      - POSTGRES_PASSWORD=password
-    ports:
-      - "8001:8080"
       
   # GraphQL
   node:
@@ -35,4 +25,4 @@ services:
     volumes:
         - ./node/src:/app
     working_dir: /app
-    command: sh -c 'npx tsc; npm run dev'
+    command: npm run dev

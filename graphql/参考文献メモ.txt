@@ -2,3 +2,6 @@
 
 node.js+express+TS導入
 https://qiita.com/tanakaPH/items/84aedaad8c0f5958a5f0
+
+GraphQLについて
+https://reffect.co.jp/html/graphql
