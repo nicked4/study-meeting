@@ -1,0 +1,13 @@
+■ GraphQLの特徴
+・取得したいものをJSONで指定したら、JSONで返ってくる
+・REST APIの代替となる規格
+・REST APIはリソース毎にエンドポイント(URL)を設ける。GraphQLは一つのエンドポイントで全て対応する。
+・REST APIではuserの中のemailだけ取得のようなことはできないが、GraphQLではできる
+・Graph QLは一つの通信で必要なデータだけを過不足なく取得しやすい
+
+■ 参考
+node.js+express+TS導入
+https://qiita.com/tanakaPH/items/84aedaad8c0f5958a5f0
+
+GraphQLについて
+https://reffect.co.jp/html/graphql
