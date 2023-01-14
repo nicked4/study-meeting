@@ -113,6 +113,7 @@ const resolvers = {
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  introspection: true,
   dataSources: () => {
     return {
       jsonPlaceAPI: new jsonPlaceAPI(),

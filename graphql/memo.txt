@@ -1,3 +1,12 @@
+■ 初期セットアップ
+docker-compose run --rm node /bin/bash
+root@2051b78cce09:/app# npm install
+docker-compose up -d
+nodeのコンテナ内に入る(https://qiita.com/Keitaroooo/items/a30bf4eb9310d7b3f7cd)
+root@c29cbbc2151b:/app# npx prisma migrate dev
+
+一度行えばその後はdocker-compose upで起動できる
+
 ■ GraphQLの特徴
 ・取得したいものをJSONで指定したら、JSONで返ってくる
 ・REST APIの代替となる規格
@@ -5,9 +14,37 @@
 ・REST APIではuserの中のemailだけ取得のようなことはできないが、GraphQLではできる
 ・Graph QLは一つの通信で必要なデータだけを過不足なく取得しやすい
 
+■ index.jsの記述
+schemaとresolverを記述
+
+■ schema
+データの型と、問い合わせ(Query)、更新、削除(Mutation)の定義を行う。
+内部処理は記述せず、インターフェース部分を記述するイメージ
+
+■ resolver
+Schemaで定義したそれぞれの処理がどのような動作をするのかを記述
+リゾルバの関数にはparent, args, context, infoの4つ引数を受け取る。
+parent: 親resolverから受け取ったオブジェクト。
+args: 渡された引数。
+context: resolver全体で共有されるオブジェクト。認証情報等を共有する。
+info: 実行したオペレーションに関する状態等の詳細情報。通常は用いられないがよりアドバンスなケースにおいて使われることが多い。
+
+■ Prisma 
+APIサーバ⇄DBサーバのやり取りのためのライブラリ
+schema.prismaにGraphQLのschemaで定義した型とデータベースの対応を記述
+.envにdbパスを記述
+index.js内でメソッドを呼び出してデータ操作。
+
+■ セキュリティ
+イントロスペクションクエリは無効にする。攻撃の手がかりを渡さないため
+その他は今までのAPIとほぼ同じ
+
 ■ 参考
-node.js+express+TS導入
+DockerでTypeScript×Node.js×Expressの環境構築
 https://qiita.com/tanakaPH/items/84aedaad8c0f5958a5f0
 
-GraphQLについて
+GraphQLサーバからDB、フロントエンド構築
 https://reffect.co.jp/html/graphql
+
+GraphQL脆弱性
+https://zenn.dev/tabio/articles/graphql-study

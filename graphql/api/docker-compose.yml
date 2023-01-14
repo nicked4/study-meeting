@@ -19,6 +19,7 @@ services:
     image: node:19
     environment:
         - DEBUG=app:*
+        - DATABASE_URL=postgresql://postgres:password@postgresql
     tty: true
     ports:
         - '4000:4000'
