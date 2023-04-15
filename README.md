@@ -4,6 +4,7 @@
 * [x] https
 * [x] DNS
 * [x] Load Balancing
+* [x] Graph　QL
 * [ ] IP
 * [ ] TCP
 * [ ] UDP
