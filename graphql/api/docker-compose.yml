@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  # PostgreSQL
+  postgresql:
+    build: 
+      context: ./postgresql/
+      dockerfile: Dockerfile
+    image: postgresql
+    container_name: postgresql
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - PGDATA=/var/lib/postgresql/data
+    volumes:
+      - ./postgresql/postgresql_data:/var/lib/postgresql/data
+      
+  # GraphQL
+  node:
+    image: node:19
+    environment:
+        - DEBUG=app:*
+        - DATABASE_URL=postgresql://postgres:password@postgresql
+    tty: true
+    ports:
+        - '4000:4000'
+    volumes:
+        - ./node/src:/app
+    working_dir: /app
+    command: npm run dev
